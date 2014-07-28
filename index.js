@@ -18,4 +18,7 @@ var express = require('express'),
     express()
         .use(vhost('informatietuin.nl', atelierfemkeboschker))
         .use(vhost('huisjeinegmond.nl', huisjeinegmond))
+        .get('/',function (req, res) {
+            res.send('unknown virtual host');
+        })
         .listen(80);
