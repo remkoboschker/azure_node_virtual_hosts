@@ -1,0 +1,34 @@
+{
+  "name": "azure_node_virtual_hosts",
+  "version": "0.0.0",
+  "description": "little express app to load different apps as virtual host",
+  "main": "index.js",
+  "dependencies": {
+    "express": "~4.6.1",
+    "http-proxy": "~1.1.6",
+    "vhost": "~2.0.0",
+    "atelierfemkeboschker": "remkoboschker/atelierfemkeboschker"  
+  },
+  "devDependencies": {
+    "gulp": "~3.8.6",
+    "mocha": "~1.20.1",
+    "chai": "~1.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remkoboschker/azure_node_virtual_hosts.git"
+  },
+  "keywords": [
+    "vhost",
+    "node"
+  ],
+  "author": "Remko Boschker",
+  "license": "mit",
+  "bugs": {
+    "url": "https://github.com/remkoboschker/azure_node_virtual_hosts/issues"
+  },
+  "homepage": "https://github.com/remkoboschker/azure_node_virtual_hosts"
+}
