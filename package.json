@@ -2,7 +2,7 @@
   "name": "azure_node_virtual_hosts",
   "version": "0.0.0",
   "description": "little express app to load different apps as virtual host",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "express": "~4.6.1",
     "http-proxy": "~1.1.6",
