@@ -13,12 +13,14 @@ var express = require('express'),
         } else {
             proxy.web(req, res, { target: 'https://huisjeinegmond.blob.core.windows.net' });
         }
-    });
+    }),
+    app = express();
 
-    express()
-        .use(vhost('informatietuin.nl', atelierfemkeboschker))
+    app.use(vhost('informatietuin.nl', atelierfemkeboschker))
         .use(vhost('huisjeinegmond.nl', huisjeinegmond))
-        .get('/',function (req, res) {
+        
+    app.get('/', function (req, res) {
             res.send('unknown virtual host');
-        })
-        .listen(80);
+    });
+        
+    app.listen(80);
