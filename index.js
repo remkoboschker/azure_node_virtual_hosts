@@ -20,7 +20,7 @@ var express = require('express'),
         .use(vhost('huisjeinegmond.nl', huisjeinegmond))
         
     app.get('/', function (req, res) {
-            res.send('unknown virtual host');
+        res.send('unknown virtual host');
     });
         
     app.listen(80);
