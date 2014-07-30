@@ -3,7 +3,7 @@ var express = require('express'),
     http = require('http'),
     httpProxy = require('http-proxy'),
     proxy = httpProxy.createProxyServer({}),
-    atelierfemkeboschker = require('../atelierfemkeboschker/app'),
+    atelierfemkeboschker = require('atelierfemkeboschker'),
     huisjeinegmond = http.createServer(function(req, res) {
         if(req.originalUrl === "/"){
             res.writeHead(302, {
@@ -16,8 +16,8 @@ var express = require('express'),
     }),
     app = express();
 
-    app.use(vhost('informatietuin.nl', atelierfemkeboschker))
-        .use(vhost('huisjeinegmond.nl', huisjeinegmond))
+    app.use(vhost('*.informatietuin.nl', atelierfemkeboschker))
+        .use(vhost('*.huisjeinegmond.nl', huisjeinegmond))
         
     app.get('/', function (req, res) {
         res.send('unknown virtual host');
