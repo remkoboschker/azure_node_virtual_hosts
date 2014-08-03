@@ -15,9 +15,8 @@ var express = require('express'),
             proxy.web(req, res, { target: 'https://huisjeinegmond.blob.core.windows.net' });
         }
     }),
-    
     app = express(),
-    var port = process.env.PORT || 1337;
+    port = process.env.PORT || 1337;
 
     app.enable('trust proxy')
         .use(vhost('*.informatietuin.nl', atelierfemkeboschker))
