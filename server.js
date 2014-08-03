@@ -3,7 +3,7 @@ var express = require('express'),
     http = require('http'),
     httpProxy = require('http-proxy'),
     proxy = httpProxy.createProxyServer({}),
-    atelierfemkeboschker = require('atelierfemkeboschker'),
+    //atelierfemkeboschker = require('atelierfemkeboschker'),
     huisjeinegmond = http.createServer(function(req, res) {
         console.log(req.originalUrl);
         if(req.originalUrl === "/"){
@@ -19,8 +19,8 @@ var express = require('express'),
     port = process.env.PORT || 1337;
 
     app.enable('trust proxy')
-        .use(vhost('*.informatietuin.nl', atelierfemkeboschker))
-        .use(vhost('informatietuin.nl', atelierfemkeboschker))
+        //.use(vhost('*.informatietuin.nl', atelierfemkeboschker))
+        //.use(vhost('informatietuin.nl', atelierfemkeboschker))
         .use(vhost('*.huisjeinegmond.nl', huisjeinegmond))
         .use(vhost('huisjeinegmond.nl', huisjeinegmond))
         .get('/', function (req, res) {
