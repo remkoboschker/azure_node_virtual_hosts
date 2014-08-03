@@ -5,6 +5,7 @@ var express = require('express'),
     proxy = httpProxy.createProxyServer({}),
     atelierfemkeboschker = require('atelierfemkeboschker'),
     huisjeinegmond = http.createServer(function(req, res) {
+        console.log(req.originalUrl);
         if(req.originalUrl === "/"){
             res.writeHead(302, {
                 'Location' : '/index.html'
@@ -14,13 +15,15 @@ var express = require('express'),
             proxy.web(req, res, { target: 'https://huisjeinegmond.blob.core.windows.net' });
         }
     }),
+    
     app = express();
 
-    app.use(vhost('*.informatietuin.nl', atelierfemkeboschker))
+    app.enable('trust proxy')
+        .use(vhost('*.informatietuin.nl', atelierfemkeboschker))
+        .use(vhost('informatietuin.nl', atelierfemkeboschker))
         .use(vhost('*.huisjeinegmond.nl', huisjeinegmond))
-        
-    app.get('/', function (req, res) {
-        res.send('unknown virtual host');
-    });
-        
-    app.listen(80);
+        .use(vhost('huisjeinegmond.nl', huisjeinegmond))
+        .get('/', function (req, res) {
+            res.send(404, 'unknown virtual host');
+        })
+        .listen(80);
