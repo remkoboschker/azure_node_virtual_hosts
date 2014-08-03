@@ -16,7 +16,8 @@ var express = require('express'),
         }
     }),
     
-    app = express();
+    app = express(),
+    var port = process.env.PORT || 1337;
 
     app.enable('trust proxy')
         .use(vhost('*.informatietuin.nl', atelierfemkeboschker))
@@ -26,4 +27,4 @@ var express = require('express'),
         .get('/', function (req, res) {
             res.send(404, 'unknown virtual host');
         })
-        .listen(80);
+        .listen(port);
