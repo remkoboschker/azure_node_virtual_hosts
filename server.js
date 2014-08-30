@@ -21,8 +21,9 @@ var express = require('express'),
     app.enable('trust proxy')
         //.use(vhost('*.informatietuin.nl', atelierfemkeboschker))
         //.use(vhost('informatietuin.nl', atelierfemkeboschker))
-        .use(vhost('*.huisjeinegmond.nl', huisjeinegmond))
         .use(vhost('huisjeinegmond.nl', huisjeinegmond))
+        .use(vhost('*.huisjeinegmond.nl', huisjeinegmond))
+        
         .get('/', function (req, res) {
             res.send(404, 'unknown virtual host');
         })
