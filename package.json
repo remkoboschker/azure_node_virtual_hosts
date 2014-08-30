@@ -6,7 +6,8 @@
     "express": "~4.6.1",
     "http-proxy": "~1.1.6",
     "vhost": "~2.0.0",
-    "atelierfemkeboschker": "remkoboschker/atelierfemkeboschker"  
+    "atelierfemkeboschker": "remkoboschker/atelierfemkeboschker",
+    "request": "~2.40.0"
   },
   "devDependencies": {
     "gulp": "~3.8.6",

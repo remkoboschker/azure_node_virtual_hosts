@@ -1,18 +1,20 @@
 var express = require('express'),
+    request = require('request'),
     vhost = require('vhost'),
     http = require('http'),
     httpProxy = require('http-proxy'),
     proxy = httpProxy.createProxyServer({}),
+    huisjeBlob = 'https://huisjeinegmond.blob.core.windows.net',
     //atelierfemkeboschker = require('atelierfemkeboschker'),
     huisjeinegmond = http.createServer(function(req, res) {
-        console.log(req.originalUrl);
+        
         if(req.originalUrl === "/"){
             res.writeHead(302, {
                 'Location' : '/index.html'
             });
             res.end();
         } else {
-            proxy.web(req, res, { target: 'https://huisjeinegmond.blob.core.windows.net' });
+            req.pipe(request(huisjeBlob + req.url)).pipe(res);
         }
     }),
     app = express(),
