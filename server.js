@@ -5,7 +5,7 @@ var express = require('express'),
     httpProxy = require('http-proxy'),
     proxy = httpProxy.createProxyServer({}),
     huisjeBlob = 'https://huisjeinegmond.blob.core.windows.net',
-    //atelierfemkeboschker = require('atelierfemkeboschker'),
+    atelierfemkeboschker = require('atelierfemkeboschker'),
     huisjeinegmond = http.createServer(function(req, res) {
         
         if(req.originalUrl === "/"){
