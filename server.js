@@ -21,8 +21,8 @@ var express = require('express'),
     port = process.env.PORT || 1337;
 
     app.enable('trust proxy')
-        .use(vhost('*.informatietuin.nl', huisjeinegmond))//atelierfemkeboschker))
-        .use(vhost('informatietuin.nl', huisjeinegmond))//atelierfemkeboschker))
+        .use(vhost('*.informatietuin.nl', atelierfemkeboschker))
+        .use(vhost('informatietuin.nl', atelierfemkeboschker))
         .use(vhost('huisjeinegmond.nl', huisjeinegmond))
         .use(vhost('*.huisjeinegmond.nl', huisjeinegmond))
         
