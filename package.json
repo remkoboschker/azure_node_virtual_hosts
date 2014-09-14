@@ -1,6 +1,6 @@
 {
   "name": "azure_node_virtual_hosts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "little express app to load different apps as virtual host",
   "dependencies": {
     "express": "~4.6.1",
